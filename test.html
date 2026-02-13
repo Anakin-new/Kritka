@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="google" content="notranslate">
+    <title>BCA Test Mode ✍️</title>
+    <link rel="stylesheet" href="style-sheets/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-sheets/test-styles.css"> <style>
+        /* Keeping your existing cozy styles here */
+        :root { --bg: #f9f7f2; --card: #ffffff; --sage: #7FA87F; --brown: #8d6e63; --border: #e0e0e0; --input-bg: #f0f0f0; --text: #4a4a4a; }
+        body { background: radial-gradient(circle at center, #ffffff 0%, #f9f7f2 100%); font-family: 'Quicksand', sans-serif; color: var(--text); margin: 0; padding: 0; }
+        .test-container { max-width: 450px; width: 92%; margin: 20px auto; padding-bottom: 40px; }
+        #selection-screen { text-align: center; background: var(--card); padding: 40px 25px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border: 1px solid var(--border); }
+        .timer-header { display: flex; justify-content: space-between; align-items: center; background: var(--card); padding: 15px 20px; border-radius: 20px; margin-bottom: 20px; position: sticky; top: 10px; z-index: 100; border: 1px solid var(--border); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .timer { color: #d48c94; font-weight: 700; font-size: 1.1rem; }
+        .q-card { background: var(--card); padding: 25px; border-radius: 25px; margin-bottom: 20px; border: 1px solid var(--border); }
+        .option { display: block; padding: 14px; border: 2px solid var(--border); border-radius: 15px; margin-top: 12px; cursor: pointer; transition: 0.2s; background: var(--input-bg); font-size: 0.9rem; }
+        .option input { display: none; }
+        .option:has(input:checked) { border-color: var(--sage); background: #f0f7ed; color: var(--sage); font-weight: 700; }
+        .submit-btn { width: 100%; background: var(--sage); color: white; border: none; padding: 16px; border-radius: 18px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+        select { width: 100%; padding: 14px; margin: 10px 0; border-radius: 15px; border: 2px solid var(--border); font-family: 'Quicksand'; background: var(--input-bg); outline: none; }
+        .surprise-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center; backdrop-filter:blur(5px); }
+        .surprise-content { background:white; padding:30px; border-radius:30px; width:85%; max-width:350px; text-align:center; max-height:80vh; overflow-y:auto; }
+        .review-item { text-align:left; padding:15px; border-radius:15px; margin-top:10px; font-size: 0.85rem; }
+        .correct-bg { background: #f0fff4; border: 1px solid #c6f6d5; }
+        .wrong-bg { background: #fff5f5; border: 1px solid #fed7d7; }
+    </style>
+</head>
+<body>
+
+    <div class="test-container">
+        <a href="dashboard.html" style="text-decoration:none; color:var(--sage); font-weight:700; display:inline-block; margin-bottom:15px;">⇠ Back to Garden</a>
+
+        <div id="selection-screen">
+            <h2 style="color: var(--brown);">BCA Test Center ✍️</h2>
+            <p style="font-size:0.85rem; margin-bottom:20px; opacity:0.7;">Select a subject to start your revision.</p>
+            
+            <select id="subject-select" onchange="loadChapters()">
+                <option value="">-- Select Subject --</option>
+                <option value="Database Management">Database Management</option>
+                <option value="Data Structures">Data Structures</option>
+                <option value="Digital Electronics">Digital Electronics</option>
+                <option value="Mathematics-II">Mathematics-II</option>
+                <option value="English">English</option>
+            </select>
+
+            <select id="chapter-select">
+                <option value="">-- Select Unit --</option>
+            </select>
+
+            <button class="submit-btn" style="margin-top: 20px;" onclick="startTest()">Start Quiz ✨</button>
+        </div>
+
+        <div id="test-screen" style="display: none;">
+            <div class="timer-header">
+                <span id="test-info">Subject</span>
+                <span class="timer">⏳ <span id="time-left">30:00</span></span>
+            </div>
+            <div id="questions-area"></div>
+            <button class="submit-btn" onclick="finishTest()">Finish & Submit ✅</button>
+        </div>
+    </div>
+
+    <div id="result-modal" class="surprise-modal">
+        <div class="surprise-content">
+            <h2 id="result-score" style="color: var(--sage); font-size: 2.5rem; margin:0;">0/0</h2>
+            <p id="result-msg" style="margin: 15px 0; font-weight: 500;"></p>
+            
+            <button class="submit-btn" style="background: var(--brown); margin-bottom: 10px;" onclick="showReview()">Review Answers 🔍</button>
+            <button class="submit-btn" onclick="location.reload()">New Test</button>
+            
+            <div id="review-area" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="js/test-data.js"></script>
+    <script src="js/test.js"></script>
+</body>
+</html>

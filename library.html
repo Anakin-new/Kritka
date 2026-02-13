@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>BCA Resource Library</title>
+    <link rel="stylesheet" href="style-sheets/dashboard.css">
+    <link rel="stylesheet" href="style-sheets/style.css">
+    <link rel="stylesheet" href="style-sheets/library.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="close-sidebar" onclick="toggleSidebar()">×</span>
+        </div>
+        <div class="sidebar-munni" onclick="window.location.href='ai.html'">
+            <div class="munni-avatar-mini"><img src="assets/munni.png" alt="Munni"></div>
+            <div class="munni-text-mini"><h4>Munni AI</h4><p>Ready to help! ✨</p></div>
+        </div>
+        <nav class="sidebar-links">
+            <a href="dashboard.html"><span class="icon">🏠</span> Dashboard</a>
+            <a href="syllabus.html"><span class="icon">📖</span> Syllabus</a>
+            <a href="library.html" class="active-link"><span class="icon">📁</span> Library</a>
+            <a href="notes.html"><span class="icon">📝</span> My Notes</a>
+        </nav>
+    </div>
+
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <div class="dashboard-wrapper">
+        <div class="header-row">
+            <div class="menu-btn" onclick="toggleSidebar()">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="header-text">
+                <h2 class="sage-title">Knowledge Hub</h2>
+                <p class="subtitle">BCA Semester Resources</p>
+            </div>
+        </div>
+
+        <div id="shelf-container" class="shelf-container">
+            </div>
+    </div>
+
+    <div id="pdf-modal" class="pdf-modal" onclick="closePDFs()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closePDFs()">×</span>
+            <h3 id="modal-title">Subject Units</h3>
+            <div id="unit-list"></div>
+        </div>
+    </div>
+
+    <script src="js/library.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('sidebar-overlay').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

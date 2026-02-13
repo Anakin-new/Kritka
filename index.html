@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" translate="no"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Welcome Kittu</title>
+    <link rel="stylesheet" href="style-sheets/auth.css">
+    <link rel="stylesheet" href="style-sheets/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="google" content="notranslate">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="washi-tape"></div>
+        <h2>Welcome, Kittu ❤️</h2>
+        
+<input type="text" id="username" value="Kittu" readonly>        
+        <div id="passDiv">
+            <input type="password" id="pass" placeholder="Password">
+            <button id="showPass">🧐</button>
+        </div>
+        
+        <button id="login">Login</button>
+        <p id="messege"></p>
+    </div>
+    
+    
+    <script src="js/auth.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('Service Worker: Registered'))
+        .catch(err => console.log('Service Worker: Error', err));
+    });
+  }
+</script>
+</body>
+</html>

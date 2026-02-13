@@ -1,0 +1,155 @@
+:root {
+    /* Cozy Light Palette */
+    --bg: #f9f7f2;        /* Milk/Cream Background */
+    --card: #ffffff;      /* Pure White Card */
+    --sage: #7FA87F;      /* Muted Sage Green */
+    --brown: #8d6e63;     /* Mocha/Latte Brown */
+    --pink: #d48c94;      /* Dusty Rose */
+    --pink-text: #c06c75; /* Darker Pink for text accents */
+    --border: #e0e0e0;    /* Light Grey Border */
+    --input-bg: #f0f0f0;  /* Light input background */
+    --text: #4a4a4a;      /* Dark Grey Text */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    overscroll-behavior-y: contain; 
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+    /* Very subtle warm vignette */
+    background: radial-gradient(circle at center, #ffffff 0%, #f9f7f2 100%);
+}
+
+.login-container {
+    background: var(--card);
+    padding: 40px 30px 30px 30px;
+    width: 320px;
+    border-radius: 24px;
+    /* Soft, airy shadow */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    position: relative;
+    /* Sage border accent */
+    border-bottom: 5px solid var(--sage);
+    border: 1px solid #f0f0f0;
+}
+
+/* Cozy Washi Tape at the top */
+.washi-tape {
+    width: 100px;
+    height: 25px;
+    background: var(--pink);
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    opacity: 0.8;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--brown); 
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 14px;
+    background: var(--input-bg); 
+    border: 2px solid var(--border);
+    color: var(--text);
+    outline: none;
+    transition: all 0.3s;
+    font-size: 16px;
+}
+
+/* Readonly username looks slightly dimmed */
+#username {
+    color: var(--sage);
+    font-weight: 600;
+    background: #fdfdfd;
+}
+
+.login-container input:focus {
+    border-color: var(--sage);
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(127, 168, 127, 0.2);
+}
+
+#passDiv {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#showPass {
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    height: 48px;
+    width: 55px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--brown);
+}
+
+#showPass:active {
+    transform: scale(0.9);
+}
+
+#login {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: var(--sage);
+    color: white; /* White text on Sage button */
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(127, 168, 127, 0.3);
+    transition: all 0.3s;
+}
+
+#login:active {
+    transform: scale(0.98);
+}
+
+/* Message Styles */
+#messege {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.error { color: var(--pink-text); } 
+.success { color: var(--sage); }
+
+/* Support for iPhone Notch/Home Bar */
+@supports (padding: env(safe-area-inset-bottom)) {
+    body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}

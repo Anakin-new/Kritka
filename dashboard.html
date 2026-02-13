@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style-sheets/dashboard.css">
+    <link rel="stylesheet" href="style-sheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span class="close-sidebar" onclick="toggleSidebar()">×</span>
+        </div>
+
+        <div class="sidebar-munni" onclick="window.location.href='ai.html'">
+            <div class="munni-avatar-mini">
+                <img src="assets/munni.png" alt="Munni">
+            </div>
+            <div class="munni-text-mini">
+                <h4>Munni AI</h4>
+                <p>Ready to help! ✨</p>
+            </div>
+        </div>
+        <nav class="sidebar-links">
+            <a href="syllabus.html">
+                <span class="icon">📖</span> Syllabus 
+                <span class="side-badge" id="side-syllabus-stat">0%</span>
+            </a>
+            <a href="test.html" class="menu-item">
+                 <span>✍️</span> Test Mode
+            </a>
+            <a href="history.html"><span class="icon">📜</span> History</a>
+            <a href="library.html"><span class="icon">📁</span> Library</a>
+            <a href="notes.html"><span class="icon">📝</span> My Notes</a>
+        </nav>
+    </div>
+    
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <div class="dashboard-wrapper">
+        <div class="header-row">
+            <div class="menu-btn" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="date-stamp">
+                <span id="current-date">Loading...</span>
+                <span id="current-time">00:00 AM</span>
+            </div>
+        </div>
+
+        <section class="plant-header">
+            <div class="plant-video-container">
+                <video id="plant-video" muted playsinline>
+                    <source src="assets/new.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="bar-container">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p class="status-text">Today's Progress🌝: <span id="percent">0</span>%</p>
+        </section>
+
+        <section class="todo-card">
+            <div class="washi-tape"></div>
+            <h3>✨ Today's Seeds</h3>
+            <div class="input-area">
+                <input type="text" id="task-input" placeholder="Plant a task...">
+                <button id="add-btn" onclick="addTask()">Add</button>
+            </div>
+            <div id="task-list" class="task-container"></div>
+        </section>
+    </div>
+
+    <div id="surprise-jar" class="surprise-jar" onclick="showSurprise()">💌</div>
+
+    <div id="surprise-overlay" class="surprise-modal" onclick="closeSurprise()">
+        <div class="surprise-content" onclick="event.stopPropagation()">
+            <span class="close-heart" onclick="closeSurprise()">💖</span>
+            <p id="surprise-text"></p>
+        </div>
+    </div>
+
+    <a href="notes.html" class="fab">
+        <span class="fab-icon">📝</span>
+    </a>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

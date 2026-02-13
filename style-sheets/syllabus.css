@@ -1,0 +1,171 @@
+:root {
+    /* Cozy Palette */
+    --bg: #f9f7f2;        
+    --brown: #8d6e63;     
+    --sage: #7FA87F;      
+    --white: #ffffff;    
+    --text: #4a4a4a;      
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    overscroll-behavior-y: contain; 
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    background-color: var(--bg);
+    font-family: 'Quicksand', sans-serif;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    color: var(--text);
+}
+
+.syllabus-wrapper { width: 100%; max-width: 450px; }
+
+/* --- HEADER --- */
+header {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-top: 6px solid var(--sage);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+#stat-text {
+    color: var(--brown);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.back-link {
+    text-decoration: none;
+    color: white; 
+    background-color: var(--brown);
+    padding: 8px 18px;
+    border-radius: 12px 4px 12px 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+/* --- PROGRESS BARS --- */
+.total-progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0; 
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: var(--sage);
+    box-shadow: 0 0 10px rgba(127, 168, 127, 0.4);
+    transition: width 0.5s ease;
+}
+
+/* --- THE ACCORDION HEADERS --- */
+.subject-section {
+    background: var(--white);
+    margin-bottom: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+/* Left side: Icon + Name */
+.sub-title {
+    font-weight: 700;
+    color: var(--brown); 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Right side: % and Mini Bar */
+.subject-progress-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+[id$="-percent"] {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--sage);
+    min-width: 35px;
+    text-align: right;
+}
+
+.mini-bar {
+    width: 50px;
+    height: 6px;
+    background: #f0f0f0; 
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mini-fill {
+    height: 100%;
+    background: var(--sage);
+    transition: width 0.4s ease;
+}
+
+/* --- CHAPTER LIST --- */
+.chapter-list {
+    background: #fafafa; 
+    border-top: 1px solid #eee;
+}
+
+.topic-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.4;
+}
+
+.topic-row span {
+    flex: 1;
+    padding-right: 15px;
+}
+
+.check-input {
+    width: 22px;
+    height: 22px;
+    accent-color: var(--sage);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.completed-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+    color: var(--sage);
+}

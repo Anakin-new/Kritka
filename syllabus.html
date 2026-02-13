@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>BCA Study Map - 2nd Semester</title>
+    <link rel="stylesheet" href="style-sheets/syllabus.css">
+    <link rel="stylesheet" href="style-sheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="syllabus-wrapper">
+        <header>
+            <a href="dashboard.html" class="back-link">← Back to Dashboard</a>
+            <h1>BCA Study Map 🗺️</h1>
+            <div class="total-progress-bar">
+                <div id="overall-fill" class="fill"></div>
+            </div>
+            <p id="stat-text">0 / 0 Topics Completed (0%)</p>
+        </header>
+
+        <details class="subject-section" id="sec-math" open>
+            <summary style="border-left: 5px solid #ff7675;">
+                <div class="sub-title">🧮 Mathematics-II</div>
+                <div class="subject-progress-box">
+                    <span id="math-percent">0%</span>
+                    <div class="mini-bar"><div id="math-fill" class="mini-fill"></div></div>
+                </div>
+            </summary>
+            <div class="chapter-list" id="math-list"></div>
+        </details>
+
+        <details class="subject-section" id="sec-english">
+            <summary style="border-left: 5px solid #74b9ff;">
+                <div class="sub-title">🗣️ Comm. English</div>
+                <div class="subject-progress-box">
+                    <span id="english-percent">0%</span>
+                    <div class="mini-bar"><div id="english-fill" class="mini-fill"></div></div>
+                </div>
+            </summary>
+            <div class="chapter-list" id="english-list"></div>
+        </details>
+
+        <details class="subject-section" id="sec-de">
+            <summary style="border-left: 5px solid #fdcb6e;">
+                <div class="sub-title">🔌 Digital Electronics</div>
+                <div class="subject-progress-box">
+                    <span id="de-percent">0%</span>
+                    <div class="mini-bar"><div id="de-fill" class="mini-fill"></div></div>
+                </div>
+            </summary>
+            <div class="chapter-list" id="de-list"></div>
+        </details>
+
+        <details class="subject-section" id="sec-ds">
+            <summary style="border-left: 5px solid #a29bfe;">
+                <div class="sub-title">🌳 Data Structures</div>
+                <div class="subject-progress-box">
+                    <span id="ds-percent">0%</span>
+                    <div class="mini-bar"><div id="ds-fill" class="mini-fill"></div></div>
+                </div>
+            </summary>
+            <div class="chapter-list" id="ds-list"></div>
+        </details>
+
+        <details class="subject-section" id="sec-dbms">
+            <summary style="border-left: 5px solid #55efc4;">
+                <div class="sub-title">🗄️ DBMS</div>
+                <div class="subject-progress-box">
+                    <span id="dbms-percent">0%</span>
+                    <div class="mini-bar"><div id="dbms-fill" class="mini-fill"></div></div>
+                </div>
+            </summary>
+            <div class="chapter-list" id="dbms-list"></div>
+        </details>
+    </div>
+
+    <script src="js/syllabus-script.js"></script>
+</body>
+</html>

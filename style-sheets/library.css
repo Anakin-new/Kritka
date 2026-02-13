@@ -1,0 +1,116 @@
+:root {
+    --sage: #7fb069;
+    --bg: #f8f9fa;
+    --white: #ffffff;
+    --text: #333;
+    --brown: #5d4037;
+}
+
+.shelf-container {
+    padding: 10px 0 100px 0;
+}
+
+.shelf {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    border: 1px solid rgba(127, 176, 105, 0.1);
+}
+
+.shelf-title {
+    color: var(--sage);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.resource-card {
+    background: #fdfdfd;
+    padding: 18px 10px;
+    border-radius: 18px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px dashed #e0e0e0;
+}
+
+.resource-card:hover {
+    border: 1px solid var(--sage);
+    background: #f0f7ed;
+    transform: translateY(-4px);
+}
+
+.res-icon {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.resource-card span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--brown);
+}
+
+/* Modal Styling */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: var(--white);
+    width: 90%;
+    max-width: 400px;
+    border-radius: 30px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.unit-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--bg);
+    margin-bottom: 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.unit-row:hover {
+    background: #eef3eb;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 25px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.sage-title { color: var(--sage); font-weight: 700; }
+.active-link { background: #f0f7ed; border-radius: 10px; }

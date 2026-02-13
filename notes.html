@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="google" content="notranslate">
+    <title>Aparna's Scratchpad</title>
+    <link rel="stylesheet" href="style-sheets/notes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="notes-wrapper">
+        <header>
+            <div class="nav-row">
+                <a href="dashboard.html" class="back-link">← Save & Exit</a>
+                <span id="save-indicator">Saved</span>
+            </div>
+            <h1>Scratchpad ✍️</h1>
+        </header>
+        
+        <div class="paper-container">
+            <textarea id="full-note-area" spellcheck="false" placeholder="Start typing your study notes here..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        const area = document.getElementById('full-note-area');
+        const indicator = document.getElementById('save-indicator');
+
+        // Load saved notes
+        area.value = localStorage.getItem('aparna_notes_simple') || "";
+
+        // Auto-save logic
+        area.addEventListener('input', () => {
+            indicator.innerText = "Saving...";
+            localStorage.setItem('aparna_notes_simple', area.value);
+            
+            // Show "Saved" after a tiny delay
+            setTimeout(() => {
+                indicator.innerText = "Saved";
+            }, 500);
+        });
+    </script>
+</body>
+</html>
